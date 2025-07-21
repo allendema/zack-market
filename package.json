@@ -1,0 +1,36 @@
+{
+	"name": "zack-market",
+	"version": "0.0.1",
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^6.0.1",
+		"@sveltejs/kit": "^2.25.1",
+		"@sveltejs/vite-plugin-svelte": "^6.1.0",
+		"svelte": "^5.36.13",
+		"svelte-adapter-bun": "^0.5.2",
+		"svelte-check": "^4.3.0",
+		"tailwindcss": "^4.1.11",
+		"typescript": "^5.8.3",
+		"vite": "^7.0.5"
+	},
+	"aaaascripts": {
+		"dev": "bun run dev",
+		"build": "bun run build",
+		"preview": "bun run preview"
+	},
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"type": "module",
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.11",
+		"autoprefixer": "^10.4.21",
+		"flowbite-svelte": "^1.10.15",
+		"flowbite-svelte-icons": "^2.2.1",
+		"postcss": "^8.5.6"
+	}
+}
