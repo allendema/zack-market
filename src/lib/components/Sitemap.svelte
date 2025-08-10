@@ -1,4 +1,9 @@
 <script lang="ts">
+
+    /*
+    Mod from: https://flowbite-svelte.com/docs/components/footer#sitemap-links
+    */
+
     import { stores, listingTypes } from '$lib/state.svelte.ts';
 
     import { Footer, FooterLinkGroup, FooterLink } from "flowbite-svelte";

@@ -1,5 +1,10 @@
 <script lang="ts">
-    import { FooterCopyright, FooterIcon } from "flowbite-svelte";
+    /*
+    Mod from:
+    https://flowbite-svelte.com/blocks/application/dashboard-footer
+    https://flowbite-svelte.com/docs/components/footer#sitemap-links
+    */
+    import { FooterCopyright, FooterIcon, FooterLinkGroup, FooterLink, Tooltip } from "flowbite-svelte";
     import { Footer as FlowbiteFooter } from "flowbite-svelte";
     import { LaptopCodeOutline } from "flowbite-svelte-icons";
 
@@ -11,8 +16,21 @@
         <div class="mt-4 flex space-x-6 sm:justify-center md:mt-0 rtl:space-x-reverse">
 
         <FooterIcon href="https://github.com/allendema">
+            <Tooltip placement="bottom"> @allendema </Tooltip>
             <LaptopCodeOutline class="h-5 w-5 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white" />
-            <p>github - allendema</p>
+            <p>github</p>
+        </FooterIcon>
+
+        <FooterIcon href="https://codeberg.org/allendema">
+            <Tooltip placement="bottom"> @allendema </Tooltip>
+            <LaptopCodeOutline class="h-5 w-5 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white" />
+            <p>codeberg</p>
+        </FooterIcon>
+
+        <FooterIcon href="xmpp:allen@tchncs.de">
+            <Tooltip placement="bottom"> allen@tchncs.de </Tooltip>
+            <LaptopCodeOutline class="h-5 w-5 text-gray-500 hover:text-gray-900 dark:text-gray-500 dark:hover:text-white" />
+            <p>xmpp - allen@tchncs.de</p>
         </FooterIcon>
 
         </div>
