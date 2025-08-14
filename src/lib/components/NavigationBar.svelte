@@ -1,4 +1,6 @@
 <script lang="ts">
+    // https://flowbite-svelte.com/docs/components/navbar#navbar-with-dropdown
+
     import { page } from "$app/state";
 
     import { stores } from '$lib/state.svelte.ts';
@@ -7,18 +9,17 @@
     import { Navbar, NavLi, NavUl, NavBrand, NavHamburger, Dropdown, DropdownItem, DropdownDivider } from "flowbite-svelte";
     import { ChevronDownOutline } from "flowbite-svelte-icons";
 
-    // https://flowbite-svelte.com/docs/components/navbar#navbar-with-dropdown
-    let activeUrl = $derived(page.url.pathname);
+    import { base as baseUrl} from '$app/paths';
 
 </script>
 
 <Navbar>
-  <NavBrand href={activeUrl}>
+  <NavBrand href={baseUrl}>
     <img src="/favicon.png" class="xs me-3 h-3 xs:h-4" alt="Logo" />
     <span class="self-center text-sm font-semibold whitespace-nowrap dark:text-white">Zack-Market</span>
   </NavBrand>
   <NavHamburger />
-  <NavUl {activeUrl}>
+  <NavUl activeUrl={baseUrl}>
     <NavLi href="/">Home</NavLi>
 
     {#each stores as store}
