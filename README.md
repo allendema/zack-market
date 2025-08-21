@@ -24,3 +24,4 @@ Svelte Concepts:
 - Minimal Caching [https://github.com/sveltejs/kit/issues/3642#issuecomment-1031640046](https://github.com/sveltejs/kit/issues/3642#issuecomment-1031640046)
 - Make Linting/Formatting possible when using Bun (instead of node.js) and Eslint (+Prettier?).
 - Fix running bun adapter [https://github.com/gornostay25/svelte-adapter-bun](https://github.com/gornostay25/svelte-adapter-bun)
+- Fix ProductCard height/width in route: http://localhost:5173/alnatura/brand/alnatura
