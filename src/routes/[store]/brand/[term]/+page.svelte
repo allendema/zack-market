@@ -13,6 +13,7 @@
     import { stores } from '$lib/state.svelte.ts';
 
     import apiClient from '$lib/api';
+    import { projectName } from '$lib/state.svelte.ts';
     import { productsStateToGrid } from '$lib/snippets.svelte';
     import { listBrands } from '$lib/snippets.svelte';
 
@@ -42,7 +43,7 @@
     });
 
     async function getBrandProducts(brand) {
-        const response = await apiClient.get(`${store}/search_brand/${brand}`, []);
+        const response = await apiClient.get(`${store}/search_brand/${encodeURIComponent(brand)}`, []);
         const data = await response.json();
         
         return data;
@@ -69,7 +70,7 @@
 <Head> </Head>
 
 <svelte:head>
-	<title>Zack-Market - Brand - {query}</title>
+	<title>{projectName} - Brand - {query}</title>
 </svelte:head>
 
 <Prefetch> </Prefetch>
