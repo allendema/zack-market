@@ -2,12 +2,13 @@
     /*
     https://flowbite-svelte.com/docs/components/darkmode
     https://flowbite-svelte.com/docs/components/navbar#navbar-with-dropdown
+    https://flowbite-svelte.com/docs/components/mega-menu#default-mega-menu
     */
 
     import { page } from "$app/state";
     import { base as baseUrl} from '$app/paths';
 
-    import { stores } from '$lib/state.svelte.ts';
+    import { stores, projectName } from '$lib/state.svelte.ts';
     import { listingTypes } from '$lib/state.svelte.ts';
 
     import { Navbar, NavLi, NavUl, NavBrand, NavHamburger, Dropdown, DropdownItem, DropdownDivider } from "flowbite-svelte";
@@ -17,8 +18,8 @@
 
 <Navbar>
   <NavBrand href={baseUrl}>
-    <img src="/favicon.png" class="xs me-3 h-3 xs:h-4" alt="Logo" />
-    <span class="self-center text-sm font-semibold whitespace-nowrap">Zack-Market</span>
+    <img src="/favicon.svg" class="xs me-3 h-3 xs:h-4" alt="Logo" />
+    <span class="self-center text-sm font-semibold whitespace-nowrap">{projectName}</span>
   </NavBrand>
   <NavHamburger />
   <NavUl activeUrl={baseUrl}>
@@ -26,7 +27,7 @@
 
     {#each stores as store}
         <NavLi class="cursor-pointer">
-        {store}<ChevronDownOutline class="text-primary-800 ms-2 inline h-6 w-6" />
+        {store}<ChevronDownOutline class="text-black-alpha-90 ms-2 inline h-6 w-6" />
         </NavLi>
 
         <Dropdown simple class="w-44">
