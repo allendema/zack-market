@@ -48,7 +48,7 @@
         <SidebarDropdownWrapper isOpen={index == 0}>
             {#each listingTypes as listingType}
                 <DropdownDivider> </DropdownDivider>
-                <SidebarItem label={listingType} href="/{store.toLowerCase()}/{listingType}" isSingle=false/>
+                <SidebarItem label={listingType} href="/{store.toLowerCase()}/{listingType}"/>
             {/each}
         </SidebarDropdownWrapper>
     {/each}
