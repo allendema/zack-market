@@ -9,14 +9,10 @@
     */
 
   import Head from "$lib/components/Head.svelte";
-  import Footer from "$lib/components/Footer.svelte";
-  import Sitemap from "$lib/components/Sitemap.svelte";
   import Toast from "$lib/components/Toast.svelte";
-  import Sidebar from "$lib/components/Sidebar.svelte";
-  import NavigationBar from "$lib/components/NavigationBar.svelte";
 
-  import { Skeleton, ImagePlaceholder } from "flowbite-svelte";
-  import { Heading, P, Span, Blockquote } from "flowbite-svelte";
+  import { ImagePlaceholder } from "flowbite-svelte";
+  import { Heading, Span, Blockquote } from "flowbite-svelte";
 </script>
 
 <Head></Head>
@@ -24,14 +20,6 @@
 <Heading tag="h2" class="mb-4 dark">
   <Span highlight="blue">Frequently Asked Questions</Span>
 </Heading>
-
-<!-- <Skeleton class="py-4 dark" /> -->
-
-<NavigationBar />
-
-<Sidebar />
-
-<P>FAQ</P>
 
 <Blockquote bg class="p-4">
   Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quas
@@ -71,7 +59,3 @@
 <ImagePlaceholder />
 
 <Toast text="Reduce! Reuse! Recycle!" counter="3"></Toast>
-
-<Sitemap></Sitemap>
-
-<Footer></Footer>

@@ -5,8 +5,6 @@
     */
 
   import Head from "$lib/components/Head.svelte";
-  import Footer from "$lib/components/Footer.svelte";
-  import Sitemap from "$lib/components/Sitemap.svelte";
   import { projectName } from '$lib/state.svelte.ts';
 
   import { Skeleton, ImagePlaceholder } from "flowbite-svelte";
@@ -21,7 +19,3 @@
 
 <ImagePlaceholder class="py-2 dark" />
 <Skeleton class="py-4 dark" />
-
-<Sitemap></Sitemap>
-
-<Footer></Footer>
