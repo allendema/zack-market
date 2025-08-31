@@ -5,17 +5,13 @@
 
     import Head from "$lib/components/Head.svelte";
     import Prefetch from "$lib/components/Prefetch.svelte";
-    import NavigationBar from "$lib/components/NavigationBar.svelte";
-    import SearchBar from "$lib/components/SearchBar.svelte";
-    import Sitemap from "$lib/components/Sitemap.svelte";
-    import Footer from "$lib/components/Footer.svelte";
 
     import { stores } from '$lib/state.svelte.ts';
-
-    import apiClient from '$lib/api';
     import { projectName } from '$lib/state.svelte.ts';
     import { productsStateToGrid } from '$lib/snippets.svelte';
     import { listBrands } from '$lib/snippets.svelte';
+
+    import apiClient from '$lib/api';
 
     let loading = $state(false);
     let error = $state('');
@@ -64,10 +60,4 @@
 
 <Prefetch> </Prefetch>
 
-<NavigationBar> </NavigationBar>
-
-<SearchBar> </SearchBar>
-
 {@render productsStateToGrid(products, loading, error)}
-
-<Footer> </Footer>
