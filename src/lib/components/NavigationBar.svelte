@@ -23,11 +23,12 @@
   </NavBrand>
   <NavHamburger />
   <NavUl activeUrl={baseUrl}>
-    <NavLi href="/">Home</NavLi>
+    <NavLi class="font-semibold text-black dark:md:text-black" href="/">Home</NavLi>
 
     {#each stores as store}
-        <NavLi class="cursor-pointer">
-        {store}<ChevronDownOutline class="text-black-alpha-90 ms-2 inline h-6 w-6" />
+        <NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black dark:hover:bg-yellow-500 dark:md:text-black"> 
+        <!--<NavLi class="font-semibold bg-white text-gray-900 dark:bg-gray-800 dark:text-black xl">-->
+        {store}<ChevronDownOutline class="ms-2 inline h-6 w-6" />
         </NavLi>
 
         <Dropdown simple class="w-44">
@@ -39,9 +40,9 @@
 
     {/each}
 
-    <NavLi href="/about">About</NavLi>
-    <NavLi href="/contact">Contact</NavLi>
-    <NavLi href="/faq">FAQ</NavLi>
+    <NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black" href="/about">About</NavLi>
+    <NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black" href="/contact">Contact</NavLi>
+    <NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black" href="/faq">FAQ</NavLi>
 
 
   </NavUl>
