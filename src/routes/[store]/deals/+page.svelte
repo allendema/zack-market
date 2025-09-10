@@ -39,8 +39,6 @@
 
 
     $effect(() => {
-        loading = true;
-
         fetchProducts();
     });
 
@@ -54,4 +52,4 @@
 
 <Prefetch> </Prefetch>
 
-{@render productsStateToGrid(products, false, undefined)}
+{@render productsStateToGrid(products, loading, error)}
