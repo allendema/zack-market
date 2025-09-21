@@ -5,7 +5,7 @@
     */
 
     import { onMount } from 'svelte';
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
 
     import Head from "$lib/components/Head.svelte";
     import { productCardSide } from '$lib/snippets.svelte';
@@ -18,7 +18,7 @@
     let products = $state([]);
     let suggestions = $state([]);
 
-    const params = $derived($page.params);
+    const params = $derived(page.params);
 
     let product_id = $state(null);
     let store = $state(null);

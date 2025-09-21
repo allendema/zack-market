@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
 
     import Head from "$lib/components/Head.svelte";
     import Prefetch from "$lib/components/Prefetch.svelte";
@@ -15,7 +15,7 @@
     let error = $state('');
     let products = $state([]);
 
-    const params = $derived($page.params);
+    const params = $derived(page.params);
     let store = $state(null);
     let query = $state('');
 

@@ -5,7 +5,7 @@
     */
 
     import { onMount } from 'svelte';
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
 
     import apiClient from '$lib/api';
     import { productCard } from '$lib/snippets.svelte';
@@ -22,7 +22,7 @@
     let store = $state(null);
     let query = $state('');
 
-    const params = $derived($page.params);
+    const params = $derived(page.params);
 
     onMount(async () => {
         store = params.store;

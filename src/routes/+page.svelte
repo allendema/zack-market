@@ -6,7 +6,7 @@
     */
 
     import { onMount } from 'svelte';
-    import { page } from "$app/stores";
+    import { page } from "$app/state";
 
     import Head from "$lib/components/Head.svelte";
     import Toast from "$lib/components/Toast.svelte";
@@ -15,7 +15,7 @@
 
     let query = $state('');
 
-    const params = $derived($page.params);
+    const params = $derived(page.params);
 
     onMount(async () => {
         query = params.term;

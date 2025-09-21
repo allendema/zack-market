@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
 
     import Head from "$lib/components/Head.svelte";
     import Prefetch from "$lib/components/Prefetch.svelte";
@@ -8,7 +8,7 @@
     import { projectName } from '$lib/state.svelte.ts';
     import { productsStateToGrid } from '$lib/snippets.svelte';
 
-    const params = $derived($page.params);
+    const params = $derived(page.params);
 
     let store = $state(null);
     let products = $state([]);
