@@ -33,7 +33,7 @@
 
         <Dropdown simple class="w-44">
             {#each listingTypes as listingType}
-                <DropdownItem href="/{store.toLowerCase()}/{listingType}">{listingType.charAt(0).toUpperCase() + listingType.slice(1)}</DropdownItem>
+                <DropdownItem data-sveltekit-reload href="/{store.toLowerCase()}/{listingType}">{listingType.charAt(0).toUpperCase() + listingType.slice(1)}</DropdownItem>
                 <DropdownDivider />
             {/each}
         </Dropdown>
