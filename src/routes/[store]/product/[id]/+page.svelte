@@ -13,6 +13,8 @@
     import { projectName } from '$lib/state.svelte.ts';
     import apiClient from '$lib/api';
 
+    import Toast from "$lib/components/Toast.svelte";
+
     let loading = $state(false);
     let error = $state('');
     let products = $state([]);
@@ -63,6 +65,8 @@
 <svelte:head>
 	<title>{projectName} - {store} - {product_id}</title>
 </svelte:head>
+
+<Toast text="Reduce! Reuse! Recycle!" counter=3> </Toast>
 
 {@render productsStateToGrid(products, loading, error)}
 
