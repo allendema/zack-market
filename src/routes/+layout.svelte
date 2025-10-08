@@ -3,7 +3,7 @@
   import '../app.css';
 
   import NavigationBar from "$lib/components/NavigationBar.svelte";
-  import Sidebar from "$lib/components/Sidebar.svelte";
+  // import Sidebar from "$lib/components/Sidebar.svelte";
   import SearchBar from "$lib/components/SearchBar.svelte";
   import Sitemap from "$lib/components/Sitemap.svelte";
   import Footer from "$lib/components/Footer.svelte";
@@ -16,7 +16,7 @@
 
 <NavigationBar></NavigationBar>
 
-<Sidebar></Sidebar>
+<!-- <Sidebar></Sidebar> -->
 
 <SearchBar></SearchBar>
 
