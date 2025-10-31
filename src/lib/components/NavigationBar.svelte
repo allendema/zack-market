@@ -5,8 +5,7 @@
     https://flowbite-svelte.com/docs/components/mega-menu#default-mega-menu
     */
 
-    import { page } from "$app/state";
-    import { base as baseUrl} from '$app/paths';
+    import { resolve } from '$app/paths';
 
     import { stores, projectName } from '$lib/state.svelte.ts';
     import { listingTypes } from '$lib/state.svelte.ts';
@@ -17,12 +16,12 @@
 </script>
 
 <Navbar>
-  <NavBrand href={baseUrl}>
+  <NavBrand href={resolve("/")}>
     <img src="/favicon.svg" class="xs me-3 h-3 xs:h-4" alt="Logo" />
     <span class="self-center text-sm font-semibold whitespace-nowrap">{projectName}</span>
   </NavBrand>
   <NavHamburger />
-  <NavUl activeUrl={baseUrl}>
+  <NavUl activeUrl={resolve("/")}>
     <NavLi class="font-semibold text-black dark:md:text-black" href="/">Home</NavLi>
 
     {#each stores as store}

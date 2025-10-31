@@ -12,7 +12,9 @@
     import { goto } from "$app/navigation";
     import { base as baseUrl} from '$app/paths';
     import { redirect } from '@sveltejs/kit';
+    import { resolve } from '$app/paths';
 
+    // import { redirect } from '@sveltejs/kit';
     import { Search, Button, Dropdown, DropdownItem } from "flowbite-svelte";
     import { SearchOutline, ChevronDownOutline } from "flowbite-svelte-icons";
 
@@ -59,6 +61,7 @@
                 // updates the url when user inputs a new query, this will fetch everything again (from cache)
                 window.location.href = `${baseUrl}/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`;
                 //await redirect(303, `${baseUrl}/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`);
+                window.location.href = resolve(`/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`);
                 return; // Prevent further execution
         }
     }
