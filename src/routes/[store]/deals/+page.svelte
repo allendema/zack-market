@@ -4,7 +4,8 @@
 
     import Head from "$lib/components/Head.svelte";
     import Prefetch from "$lib/components/Prefetch.svelte";
-    import apiClient from '$lib/api';
+    import apiClient from '$lib/api/api';
+
     import { projectName } from '$lib/state.svelte.ts';
     import { productsStateToGrid } from '$lib/snippets.svelte';
 
@@ -21,20 +22,12 @@
     });
 
     async function fetchProducts() {
-        try {
-            loading = true;
-            error = "";
-            const response = await apiClient.get(`${store}/top_deals`, []);
-            // const response = await apiClient.get(`${store}/discounted_products`);
-            const data = await response.json();
+        loading = true;
 
-            products = data;
-        } catch (err) {
-            error = err instanceof Error ? err.message : "An unknown error occurred";
-            products = [];
-        } finally {
-            loading = false;
-        }
+        const {data, error} = await apiClient.GET(`/${store}/top_deals`);
+        products = data;
+
+        loading = false;
     }
 
 

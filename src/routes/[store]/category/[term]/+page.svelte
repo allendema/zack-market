@@ -11,7 +11,7 @@
     import { productsStateToGrid } from '$lib/snippets.svelte';
     import { listBrands } from '$lib/snippets.svelte';
 
-    import apiClient from '$lib/api';
+    import apiClient from '$lib/api/api';
 
     let loading = $state(false);
     let error = $state('');
@@ -28,9 +28,8 @@
     });
 
     async function getCategoryProducts(category) {
-        const response = await apiClient.get(`${store}/search_category/${category}`, []);
-        const data = await response.json();
-        
+        const {data, error} = await apiClient.GET(`/${store}/search_category/${category}`;
+
         return data;
     }
 

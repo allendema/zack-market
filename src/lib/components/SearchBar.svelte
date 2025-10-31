@@ -10,11 +10,13 @@
 
     import { page } from "$app/state";
     import { goto } from "$app/navigation";
-    import { base as baseUrl} from '$app/paths';
-    import { redirect } from '@sveltejs/kit';
     import { resolve } from '$app/paths';
 
     // import { redirect } from '@sveltejs/kit';
+
+    // import { productsStateToGrid } from '$lib/snippets.svelte';
+    import apiClient from '$lib/api/api';
+
     import { Search, Button, Dropdown, DropdownItem } from "flowbite-svelte";
     import { SearchOutline, ChevronDownOutline } from "flowbite-svelte-icons";
 
@@ -42,7 +44,6 @@
     JavaScript/TypeScript projects using a LSP-compatible editor.
 
     - updates the url when user inputs a new query
-    - 'goto' will only update the visible url but not 'render' the url path
     - You can use markdown here.
     - You can use code blocks here.
     */
@@ -54,16 +55,28 @@
             if (selectCategory.toLowerCase() == "all stores") {
                     selectCategory = "lidl";
                 }
-                // await goto(`${baseUrl}/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`);
                 // await goto(`${baseUrl}/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`, { replaceState: true });
                 // 'goto' will only update the visible url but not 'render' the url path when doing multiple searches from differen routes
 
                 // updates the url when user inputs a new query, this will fetch everything again (from cache)
-                window.location.href = `${baseUrl}/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`;
-                //await redirect(303, `${baseUrl}/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`);
                 window.location.href = resolve(`/${selectCategory.toLowerCase()}/search/${encodeURIComponent(query)}`);
                 return; // Prevent further execution
+            /* FIXME render products with productsStateToGrid
+            if (query) {
+
+              fetchProducts();
+          }*/
         }
+    }
+
+    async function fetchProducts() {
+        loading = true;
+
+        // const {data, error} = await apiClient.GET(`/${store}/search/${encodeURIComponent(newQuery)}`);
+        const {data, error} = await apiClient.GET(`/lidl/search/${encodeURIComponent(query)}`);
+        products = data;
+
+        loading = false;
     }
 
 </script>

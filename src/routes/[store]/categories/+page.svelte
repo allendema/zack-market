@@ -3,6 +3,7 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
     import { page } from '$app/stores';
+    import { page } from '$app/state';
 
     import Head from "$lib/components/Head.svelte";
     import Prefetch from "$lib/components/Prefetch.svelte";
@@ -16,6 +17,7 @@
     import { projectName } from '$lib/state.svelte.ts';
 
     import apiClient from '$lib/api';
+    import apiClient from '$lib/api/api';
     import { getValue } from '$lib/utils';
 
     import { productsStateToGrid } from '$lib/snippets.svelte';
@@ -28,6 +30,7 @@
     let products = $state([]);
 
     const params = $derived($page.params);
+    const params = $derived(page.params);
     let store = $state(null);
     let categories = $state([]);
     let subcategories = $state([]);
@@ -48,10 +51,19 @@
         return data
     }
 
+    async function fetchProducts() {
+        loading = true;
+
+        //const {data, error} = await apiClient.GET(`/${store}/search/${encodeURIComponent(newQuery)}`);
+        const {data, error} = await apiClient.GET(`/lidl/search/${encodeURIComponent(query)}`);
+
+        products = data;
+
+        loading = false;
+    }
 
     async function getStoreSubcategories(storeName) {
-        const response = await apiClient.get(`${storeName}/subcategories`);
-        const data = await response.json();
+        const {data, error} = await apiClient.GET(`/${storeName}/subcategories`);
         
         return data
     }

@@ -11,7 +11,7 @@
     import { productCardSide } from '$lib/snippets.svelte';
     import { productsStateToGrid } from '$lib/snippets.svelte';
     import { projectName } from '$lib/state.svelte.ts';
-    import apiClient from '$lib/api';
+    import apiClient from '$lib/api/api';
 
     import Toast from "$lib/components/Toast.svelte";
 
@@ -34,21 +34,12 @@
 
 
     async function fetchProducts() {
-        try {
-            loading = true;
-            error = '';
-            
-            const response = await apiClient.get(`${store}/product/${encodeURIComponent(product_id)}`, []);
-            const data = await response.json();
-            
-            products = data
+        loading = true;
 
-        } catch (err) {
-            error = err instanceof Error ? err.message : 'An unknown error occurred';
-            products = [];
-        } finally {
-            loading = false;
-        }
+        const {data, error} = await apiClient.GET(`/${store}/product/${encodeURIComponent(product_id)}`);
+        products = data;
+
+        loading = false;
     }
 
     $effect(() => {

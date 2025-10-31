@@ -7,11 +7,11 @@
     import { onMount } from 'svelte';
     import { page } from '$app/state';
 
-    import apiClient from '$lib/api';
-    import { productCard } from '$lib/snippets.svelte';
+    import apiClient from '$lib/api/api';
     import { projectName } from '$lib/state.svelte.ts';
     import { productsStateToGrid } from '$lib/snippets.svelte';
     import Head from "$lib/components/Head.svelte";
+    import ButtonLoading from "$lib/components/ButtonLoading.svelte";
 
     import { PaginationNav } from "flowbite-svelte";
 
@@ -38,27 +38,16 @@
     }
 
     async function fetchProducts() {
-        try {
-            loading = true;
-            error = '';
+        loading = true;
 
-            //const response = await apiClient.get(`${store}/search/${encodeURIComponent(query)}`);
+        //const {data, error} = await apiClient.GET(`/${store}/search/${encodeURIComponent(newQuery)}`);
+        const {data, error} = await apiClient.GET(`/lidl/search/${encodeURIComponent(query)}`);
 
-            //const response = await apiClient.get(`${store}/search/${encodeURIComponent(newQuery)}`);
-            // FIXME: TODO: geizhals returns 404 on search, rewe returns "no_hit" but the browser returns hits!!!
-            const response = await apiClient.get(`lidl/search/${encodeURIComponent(query)}`, []);
-            const data = await response.json();
+        products = data;
 
-            products = data
-
-        } catch (err) {
-            error = err instanceof Error ? err.message : 'An unknown error occurred';
-            console.log(error)
-            products = [];
-        } finally {
-            loading = false;
-        }
+        loading = false;
     }
+
 
     $effect(() => {
         // if (!loading)
@@ -84,6 +73,11 @@
 <Head> </Head>
 
 <h1>Searching "{store}" for "{query}" </h1>
+<!-- Too Late
+{#if loading}
+  <ButtonLoading></ButtonLoading>
+{/if}
+-->
 
 {@render productsStateToGrid(products, loading, error)}
 
