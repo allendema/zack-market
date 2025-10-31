@@ -27,6 +27,8 @@ vite.config.ts.timestamp-*
 # Swap Files #
 .*.kate-swp
 .swp.*
+*.swp
+.kateproject*
 
 ### Linux ###
 *~

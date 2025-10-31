@@ -8,8 +8,21 @@ Once you've installed dependencies with `bun install`, start the development ser
 bun --bun run dev --open
 ```
 
-## Design Principles
-See [design.md](./.design.md)
+## Design Principles (For humans)
+# Imports
+Import from locals first. Empty Line and then external imports.
+
+# Parsing
+No or minimal parsing of backend results.
+
+# Packages
+Use minimal package dependencies.
+
+# Look and Feel
+Reuse same components or snippets everywhere.
+
+# Git
+[https://www.conventionalcommits.org/en/v1.0.0/#summary](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 
 ## General Inspirations
 Website: [https://www.mcmaster.com/](https://www.mcmaster.com/)  
