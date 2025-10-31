@@ -12,11 +12,17 @@
 
 </script>
 
-<DarkMode class="text-primary-500 dark:text-primary-600 border dark:border-gray-800" />
+<DarkMode class="absolute top-0 right-0 size-12 text-primary-500 dark:text-primary-600 border dark:border-gray-800" />
 
 <NavigationBar></NavigationBar>
 
 <!-- <Sidebar></Sidebar> -->
+
+<!-- FIXME:
+  - Make SearchBar return results to be then rendered
+  - Also the selected option remains selected onto the next page (after searching)
+<SearchBar query="pizza"></SearchBar>
+-->
 
 <SearchBar></SearchBar>
 
