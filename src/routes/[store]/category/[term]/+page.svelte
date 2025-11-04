@@ -28,7 +28,7 @@
     });
 
     async function getCategoryProducts(category) {
-        const {data, error} = await apiClient.GET(`/${store}/search_category/${category}`;
+        const {data, error} = await apiClient.GET(`/${store}/search_category/${category}`);
 
         return data;
     }

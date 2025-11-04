@@ -9,53 +9,36 @@
     */
 
   import Head from "$lib/components/Head.svelte";
-  import Toast from "$lib/components/Toast.svelte";
+  // import Toast from "$lib/components/Toast.svelte";
 
-  import { ImagePlaceholder } from "flowbite-svelte";
-  import { Heading, Span, Blockquote } from "flowbite-svelte";
+  import { A, Heading, Span, Blockquote } from "flowbite-svelte";
 </script>
 
 <Head></Head>
 
-<Heading tag="h2" class="mb-4 dark">
+<Heading tag="h2" class="mb-4">
   <Span highlight="blue">Frequently Asked Questions</Span>
 </Heading>
 
 <Blockquote bg class="p-4">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quas
-  commodi accusamus dignissimos qui totam iste rem necessitatibus? Cumque minus
-  et animi nostrum deserunt provident excepturi laboriosam ipsum minima nisi!
+  Python dev tries frontend...
 </Blockquote>
 
 <Blockquote bg class="p-4">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quas
-  commodi accusamus dignissimos qui totam iste rem necessitatibus? Cumque minus
-  et animi nostrum deserunt provident excepturi laboriosam ipsum minima nisi!
+  All the data is extracted using the API of
+  <A color="blue" class="font-medium hover:underline" href="https://github.com/allendema/zack-market-dl">
+  https://github.com/allendema/zack-market-dl 
+  </A>
+  and then displayed here.
 </Blockquote>
 
 <Blockquote bg class="p-4">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quas
-  commodi accusamus dignissimos qui totam iste rem necessitatibus? Cumque minus
-  et animi nostrum deserunt provident excepturi laboriosam ipsum minima nisi!
-</Blockquote>
-<Blockquote bg class="p-4">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quas
-  commodi accusamus dignissimos qui totam iste rem necessitatibus? Cumque minus
-  et animi nostrum deserunt provident excepturi laboriosam ipsum minima nisi!
+  Prices change from time to time, so even the price on official store website is not 100% correct.
+  Same applies here too.
 </Blockquote>
 
 <Blockquote bg class="p-4">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quas
-  commodi accusamus dignissimos qui totam iste rem necessitatibus? Cumque minus
-  et animi nostrum deserunt provident excepturi laboriosam ipsum minima nisi!
+  Reduce! Reuse! Recycle!
 </Blockquote>
 
-<Blockquote bg class="p-4">
-  Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur quas
-  commodi accusamus dignissimos qui totam iste rem necessitatibus? Cumque minus
-  et animi nostrum deserunt provident excepturi laboriosam ipsum minima nisi!
-</Blockquote>
-
-<ImagePlaceholder />
-
-<Toast text="Reduce! Reuse! Recycle!" counter="3"></Toast>
+<!-- <Toast text="Reduce! Reuse! Recycle!" counter="3"></Toast> -->
