@@ -4,7 +4,7 @@
     https://flowbite-svelte.com/blocks/application/dashboard-footer
     https://flowbite-svelte.com/docs/components/footer#sitemap-links
     */
-    import { FooterCopyright, FooterIcon, FooterLinkGroup, FooterLink, Tooltip } from "flowbite-svelte";
+    import { FooterCopyright, FooterIcon, Tooltip } from "flowbite-svelte";
     import { Footer as FlowbiteFooter } from "flowbite-svelte";
     import { LaptopCodeOutline } from "flowbite-svelte-icons";
 

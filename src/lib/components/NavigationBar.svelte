@@ -40,7 +40,7 @@
     {/each}
 
     <NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black" href="/about">About</NavLi>
-    <NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black" href="/contact">Contact</NavLi>
+    <!--<NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black" href="/contact">Contact</NavLi> -->
     <NavLi class="cursor-pointer font-semibold bg-white text-gray-900 dark:text-black dark:md:text-black" href="/faq">FAQ</NavLi>
 
 
