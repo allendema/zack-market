@@ -20,14 +20,13 @@
     let products = $state([]);
     let suggestions = $state([]);
 
-    const params = $derived(page.params);
-
-    let product_id = $state(null);
+    let productId = $state(null);
     let store = $state(null);
 
-    onMount(() => {
+    const params = $derived(page.params);
 
-        product_id = params.id;
+    onMount(async () => {
+        productId = params.id;
         store = params.store;
 
     });
@@ -36,14 +35,14 @@
     async function fetchProducts() {
         loading = true;
 
-        const {data, error} = await apiClient.GET(`/${store}/product/${encodeURIComponent(product_id)}`);
+        const {data, error} = await apiClient.GET(`/${store}/product/${encodeURIComponent(productId)}`);
         products = data;
 
         loading = false;
     }
 
     $effect(() => {
-        if (product_id) {
+        if (productId) {
             fetchProducts();
         }
     });
@@ -54,7 +53,7 @@
 <Head> </Head>
 
 <svelte:head>
-	<title>{projectName} - {store} - {product_id}</title>
+	<title>{projectName} - {store} - {productId}</title>
 </svelte:head>
 
 <Toast text="Reduce! Reuse! Recycle!" counter=3> </Toast>

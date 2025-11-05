@@ -40,7 +40,7 @@
 <Head> </Head>
 
 <svelte:head>
-	<title>{projectName} - deals</title>
+    <title>{projectName} - deals</title>
 </svelte:head>
 
 <Prefetch> </Prefetch>

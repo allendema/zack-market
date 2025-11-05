@@ -11,7 +11,7 @@
     import { projectName } from '$lib/state.svelte.ts';
     import { productsStateToGrid } from '$lib/snippets.svelte';
     import Head from "$lib/components/Head.svelte";
-    import ButtonLoading from "$lib/components/ButtonLoading.svelte";
+    // import ButtonLoading from "$lib/components/ButtonLoading.svelte";
 
     import { PaginationNav } from "flowbite-svelte";
 

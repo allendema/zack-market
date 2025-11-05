@@ -1,35 +1,25 @@
 <script lang="ts">
 
     import { onMount } from 'svelte';
-    import { goto } from '$app/navigation';
-    import { page } from '$app/stores';
     import { page } from '$app/state';
 
     import Head from "$lib/components/Head.svelte";
     import Prefetch from "$lib/components/Prefetch.svelte";
-    import NavigationBar from "$lib/components/NavigationBar.svelte";
-    import SearchBar from "$lib/components/SearchBar.svelte";
-    import Sidebar from "$lib/components/Sidebar.svelte";
-    import Sitemap from "$lib/components/Sitemap.svelte";
-    import Footer from "$lib/components/Footer.svelte";
 
-    import { brands, demoProduct, stores } from '$lib/state.svelte.ts';
-    import { projectName } from '$lib/state.svelte.ts';
+    import { projectName, stores } from '$lib/state.svelte.ts';
 
-    import apiClient from '$lib/api';
     import apiClient from '$lib/api/api';
     import { getValue } from '$lib/utils';
 
     import { productsStateToGrid } from '$lib/snippets.svelte';
     import { listBrands } from '$lib/snippets.svelte';
 
-    import { FooterLink } from "flowbite-svelte";
+    import { Footer, FooterLinkGroup, FooterLink } from "flowbite-svelte";
 
     let loading = $state(false);
     let error = $state('');
     let products = $state([]);
 
-    const params = $derived($page.params);
     const params = $derived(page.params);
     let store = $state(null);
     let categories = $state([]);
@@ -45,21 +35,9 @@
 
 
     async function getStoreCategories(storeName) {
-        const response = await apiClient.get(`${storeName}/categories`);
-        const data = await response.json();
-        
+        const {data, error} = await apiClient.GET(`/${storeName}/categories`);
+
         return data
-    }
-
-    async function fetchProducts() {
-        loading = true;
-
-        //const {data, error} = await apiClient.GET(`/${store}/search/${encodeURIComponent(newQuery)}`);
-        const {data, error} = await apiClient.GET(`/lidl/search/${encodeURIComponent(query)}`);
-
-        products = data;
-
-        loading = false;
     }
 
     async function getStoreSubcategories(storeName) {
@@ -80,17 +58,36 @@
 
 <Prefetch> </Prefetch>
 
-<NavigationBar> </NavigationBar>
+{#snippet listCategories(store, categories)}
+    <Footer class="sitemap bg-white dark:bg-gray-800 dark" footerType="sitemap">
+    <div class="grid grid-cols-4 gap-8 px-6 py-8 md:grid-cols-6">
 
-<SearchBar> </SearchBar>
+    <div>
+    <h2 class="store mb-6 text-sm font-semibold text-blue-500 uppercase {store}">{store}</h2>
+    <FooterLinkGroup class="text-gray-900 dark:text-blue-500">
 
-<Sidebar> </Sidebar>
+    {#await categories then categories}
+        {#each categories.subcategories as category (category)}
+            {#if category.category_id}
+                <FooterLink class="mb-2 capitalize" href="/{store.toLowerCase()}/category/{category.category_id}">{category.category_name}</FooterLink>
+            {/if}
+        {/each}
+    {/await}
 
+    </FooterLinkGroup>
+    </div>
+    </div>
+    </Footer>
+{/snippet}
+
+{@render listCategories(store, categories)}
+
+<!--
 <svelte:boundary>
 <List tag="ul" class="space-y-4">
         <p> Categories in {store} </p>
         <List tag="ul" class="mt-2 space-y-1 ps-5">
-            {#each categories as category}
+            {#each categories as category (category)}
                 {#if category.category_id}
                     <FooterLink class="mb-2 capitalize" href="/{store.toLowerCase()}/category/{category.category_id}">{category.category_name}</FooterLink>
                 {/if}
@@ -99,12 +96,12 @@
 </List>
 </svelte:boundary>
 
-<!--
+
 <svelte:boundary>
 <List tag="ul" class="space-y-4">
         <p> Subcategories in {store} </p>
         <List tag="ul" class="mt-2 space-y-1 ps-5">
-            {#each subcategories as subcategory}
+            {#each subcategories as subcategory (subcategory)}
 
                 {#if subcategory.subcategory_id}
                     <FooterLink class="mb-2 capitalize" href="/{store.toLowerCase()}/subcategory/{subcategory.subcategory_id}">{subcategory.subcategory_name}</FooterLink>
@@ -114,5 +111,3 @@
 </List>
 </svelte:boundary>
 -->
-
-<Footer> </Footer>
