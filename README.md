@@ -36,3 +36,9 @@ Svelte Concepts:
 - Make Linting/Formatting possible when using Eslint and Prettier  
 - Fix ProductCard height/width in some routes: http://localhost:5173/alnatura/brand/alnatura  
 - 404 Page [https://www.404s.design/](https://www.404s.design/)  
+
+## Examples
+>Search example：
+[![](./docs/static/search.png)](./docs/static/search.png "Search example")
+>Product example：
+[![](./docs/static/product.png)](./docs/static/product.png "Product example")
