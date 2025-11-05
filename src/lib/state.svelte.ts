@@ -9,4 +9,10 @@ export const cdnHostnames: string[] = $state(["https://rewe.com", "https://img.r
                                              "https://mediaservice.alnatura.de",
                                              "https://cdn.idealo.com"
                                              ]);
-export const api: string = $state("http://127.0.0.1:8000");
+export const apiVersion: string = $state("v1");
+export const apiScheme: string = $state("http");
+export const apiNetloc: string = $state("127.0.0.1:8000");
+
+export function getApiString(){
+  return `${apiScheme}://${apiNetloc}/${apiVersion}/`
+}
