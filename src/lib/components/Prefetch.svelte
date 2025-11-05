@@ -7,7 +7,7 @@
 
 <svelte:head>
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/dns-prefetch -->
-    {#each cdnHostnames as hostname}
+    {#each cdnHostnames as hostname (hostname)}
         <link rel="dns-prefetch" href={hostname}>
     {/each}
 

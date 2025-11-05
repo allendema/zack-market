@@ -34,7 +34,7 @@
 <Sidebar alwaysOpen={true} {activeUrl} backdrop={false} isSingle={false} isOpen={isSidebarOpen} closeSidebar={closeSidebar} params={{ x: -50, duration: 50 }} classes={{ nonactive: {nonActiveClass}, active: {activeClass} }} position="fixed" class="z-50 h-full">
   <SidebarWrapper>
     <SidebarGroup>
-      {#each stores as store, index}
+      {#each stores as store, index (store)}
         <SidebarItem label={store} {spanClass} href="/{store.toLowerCase()}">
           {#snippet icon()}
             <StoreSolid class="h-5 w-5 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white" />
@@ -43,7 +43,7 @@
 
         <!-- Only keep the first store dropdown open to illustrate that each store can be "opened". -->
         <SidebarDropdownWrapper isOpen={index == 0}>
-            {#each listingTypes as listingType}
+            {#each listingTypes as listingType (listingType)}
               <DropdownDivider> </DropdownDivider>
               <SidebarDropdownItem data-sveltekit-reload label={listingType} href="/{store.toLowerCase()}/{listingType}"/>
             {/each}

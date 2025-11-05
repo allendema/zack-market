@@ -31,7 +31,12 @@ export default [
     rules: {
       // Override or add rule settings here, such as:
       // 'svelte/rule-name': 'error'
-      'no-unused-vars': 'error'
+      'svelte/no-target-blank': 'error',
+      'svelte/button-has-type': 'error',
+      'svelte/no-add-event-listener': 'error',
+      'svelte/no-ignored-unsubscribe': 'error',
+      'svelte/mustache-spacing': 'error',
+      'svelte/html-quotes': ['error', {'prefer': 'double'}]
     }
   }
 ];

@@ -88,7 +88,7 @@
       <ChevronDownOutline class="ms-2.5 h-6 w-6" />
     </Button>
     <Dropdown {activeUrl} simple class="w-40">
-      {#each items as { label }}
+      {#each items as label (label)}
         <DropdownItem
           onclick={() => {
             selectCategory = label;
