@@ -7,8 +7,8 @@
   import Head from "$lib/components/Head.svelte";
   import { projectName } from '$lib/state.svelte.ts';
 
-  import { Skeleton, ImagePlaceholder } from "flowbite-svelte";
-  import { Heading, P, Span } from "flowbite-svelte";
+  import { A, P, Heading, Span, Blockquote } from "flowbite-svelte";
+
 </script>
 
 <Head></Head>
@@ -17,5 +17,31 @@
 
 <P> {projectName}. </P>
 
-<ImagePlaceholder class="py-2 dark" />
-<Skeleton class="py-4 dark" />
+<Blockquote bg class="p-4">
+  What?
+</Blockquote>
+
+<Blockquote bg class="p-4">
+ Frontend for showing products, deals, brands, etc. of different markets/stores.
+</Blockquote>
+
+<Blockquote bg class="p-4">
+  Why?
+</Blockquote>
+
+<Blockquote bg class="p-4">
+  Playing with Svelte <A color="blue" class="font-medium hover:underline" href="https://svelte.dev">https://svelte.dev </A>
+</Blockquote>
+
+<Blockquote bg class="p-4">
+  How?
+</Blockquote>
+<Blockquote bg class="p-4">
+  Consuming the OpenAPI of <A color="blue" class="font-medium hover:underline" href="https://github.com/allendema/zack-market-dl?tab=readme-ov-file#readme">zack-market-dl </A>.
+</Blockquote>
+
+<Blockquote bg class="p-4">
+  Reduce! Reuse! Recycle!
+</Blockquote>
+
+
