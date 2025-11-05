@@ -1,27 +1,41 @@
 # Zack-Market
 
+## FAQ
+What?
+  - Frontend for showing products, deals, brands, etc. of different markets/stores.
+
+Why?
+  - Playing with [Svelte](https://svelte.dev)
+  - Finding better deals
+
+How?
+  - Consuming the OpenAPI of [zack-market-dl](https://github.com/allendema/zack-market-dl?tab=readme-ov-file#readme).
+
+
 ## Developing
-This project uses [bun](https://bun.com) as package manager and runner.
+This project uses [bun](https://bun.com) as package manager and runtime.  
 Once you've installed dependencies with `bun install`, start the development server:
 
 ```bash
 bun --bun run dev --open
 ```
 
+To get all the respones from OpenAPI, setup the backend [zack-market-dl](https://github.com/allendema/zack-market-dl?tab=readme-ov-file#readme)
+
 ## Design Principles (For humans)
-# Imports
+### Imports
 Import from locals first. Empty Line and then external imports.
 
-# Parsing
+### Parsing
 No or minimal parsing of backend results.
 
-# Packages
+### Packages
 Use minimal package dependencies.
 
-# Look and Feel
+### Look and Feel
 Reuse same components or snippets everywhere.
 
-# Git
+### Git
 [https://www.conventionalcommits.org/en/v1.0.0/#summary](https://www.conventionalcommits.org/en/v1.0.0/#summary)
 
 ## General Inspirations
@@ -42,3 +56,6 @@ Svelte Concepts:
 [![](./docs/static/search.png)](./docs/static/search.png "Search example")
 >Product example：
 [![](./docs/static/product.png)](./docs/static/product.png "Product example")
+
+## License
+[GNU General Public License 3](./LICENSE "GNU General Public License 3")
