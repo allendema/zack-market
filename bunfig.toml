@@ -1,0 +1,14 @@
+# https://bun.com/docs/runtime/bunfig
+[install]
+# Only install package versions published at least 3 days ago
+minimumReleaseAge = 259200 # seconds
+# These packages will bypass the 3-day minimum age requirement
+minimumReleaseAgeExcludes = [""]
+
+[run]
+# equivalent to `bun --bun` for all `bun run` commands
+bun = true
+
+[test]
+# Run tests in a specific test directory
+root = "tests"
