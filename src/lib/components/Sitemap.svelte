@@ -20,7 +20,7 @@
 
             {#each listingTypes as listingType (listingType)}
                 <!-- https://tailwindcss.com/docs/text-transform -->
-                <FooterLink class="mb-2 capitalize" href="/{store.toLowerCase()}/{listingType.toLowerCase()}">{store} {listingType}</FooterLink>
+                <FooterLink data-sveltekit-reload class="mb-2 capitalize" href="/{store.toLowerCase()}/{listingType.toLowerCase()}">{store} {listingType}</FooterLink>
             {/each}
 
         </FooterLinkGroup>
