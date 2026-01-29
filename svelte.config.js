@@ -31,7 +31,6 @@ const config = {
     },
 
     compilerOptions: {
-        // currently only in one file needed (about.svelte)?
         experimental: {
             async: true
     }
