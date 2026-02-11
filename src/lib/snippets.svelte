@@ -126,6 +126,8 @@
     {#if loading}
         <div class="loading-state">
             <Spinner color="red" />
+            <ImagePlaceholder class="max-w-md" imgOnly />
+            <ListPlaceholder class="max-w-md" />
         </div>
     {:else if error}
         <div class="error-state">
@@ -133,8 +135,6 @@
         </div>
     {:else if !products || products.length === 0}
         <div class="no-results">
-            <ImagePlaceholder class="max-w-md" imgOnly />
-            <ListPlaceholder class="max-w-md" />
             <p>No results found.</p>
         </div>
     {:else}
